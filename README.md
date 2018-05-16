@@ -1,6 +1,7 @@
 # buffer-code-exercise-api
 
 This is a small api server which will be used in the Buffer interview code exercise.
+
 The api is available at `http://code-exercise-api.buffer.com`.
 
 ## Endpoints
