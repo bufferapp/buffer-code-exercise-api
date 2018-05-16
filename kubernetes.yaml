@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: buffer-code-exercise-api
+  labels:
+    app: buffer-code-exercise-api
+  namespace: internal
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: buffer-code-exercise-api
+    spec:
+      containers:
+      - name: api
+        image: bufferapp/buffer-code-exercise-api:1.0
+        ports:
+        - containerPort: 8888
+        resources:
+          limits:
+            cpu: 100m
+            memory: 200Mi
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: buffer-code-exercise-api
+  labels:
+    app: buffer-code-exercise-api
+  namespace: internal
+spec:
+  ports:
+    - port: 80
+      targetPort: 8888
+      protocol: TCP
+      name: http
+  selector:
+    app: buffer-code-exercise-api
+  type: LoadBalancer
