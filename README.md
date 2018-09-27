@@ -2,7 +2,7 @@
 
 This is a small api server which will be used in the Buffer interview code exercise.
 
-The api is available at `http://code-exercise-api.buffer.com`.
+The api is available at `https://code-exercise-api.buffer.com`.
 
 ## Endpoints
 
@@ -14,7 +14,7 @@ Parameters
 
 Example request
 ```
-http://code-exercise-api.buffer.com/getTweets?ids=989720051677741057,989479247084388353
+https://code-exercise-api.buffer.com/getTweets?ids=989720051677741057,989479247084388353
 ```
 
 Example response
