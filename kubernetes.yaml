@@ -30,12 +30,15 @@ metadata:
   labels:
     app: buffer-code-exercise-api
   namespace: internal
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: <REPLACE W/ VALID CERT ARN>
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
 spec:
   ports:
-    - port: 80
+    - port: 443
       targetPort: 8888
       protocol: TCP
-      name: http
+      name: https
   selector:
     app: buffer-code-exercise-api
   type: LoadBalancer
