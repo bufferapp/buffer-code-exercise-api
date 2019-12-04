@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: bufferapp/buffer-code-exercise-api:1.0
+        image: bufferapp/buffer-code-exercise-api:1.1
         ports:
         - containerPort: 8888
         resources:
