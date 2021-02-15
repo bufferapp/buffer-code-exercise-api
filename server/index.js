@@ -28,7 +28,10 @@ app.get('/cluster/status.json', (req, res) => {
       message: 'Endpoint authentication failure',
     })
   }
-  res.json({ pods: getClusterPods(failureState) })
+  res.json({
+    status: 'success',
+    data: getClusterPods(failureState),
+  })
 })
 
 database.init((err) => {
