@@ -1,0 +1,20 @@
+# Before creating or applying, add the AWS SSL Cert ARN
+apiVersion: v1
+kind: Service
+metadata:
+  name: buffer-code-exercise-api
+  labels:
+    app: buffer-code-exercise-api
+  namespace: internal
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: <REPLACE W/ VALID CERT ARN>
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+spec:
+  ports:
+    - port: 443
+      targetPort: 8888
+      protocol: TCP
+      name: https
+  selector:
+    app: buffer-code-exercise-api
+  type: LoadBalancer

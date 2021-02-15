@@ -1,0 +1,28 @@
+# Update your image tag before applying this file
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buffer-code-exercise-api
+  labels:
+    app: buffer-code-exercise-api
+  namespace: internal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: buffer-code-exercise-api
+  template:
+    metadata:
+      labels:
+        app: buffer-code-exercise-api
+    spec:
+      containers:
+      - name: api
+        image: bufferapp/buffer-code-exercise-api:2.0
+        ports:
+        - containerPort: 8888
+        resources:
+          limits:
+            cpu: 100m
+            memory: 200Mi
+      restartPolicy: Always
