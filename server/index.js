@@ -17,11 +17,11 @@ app.get('/getTweets', (req, res) => {
   res.json(tweets)
 })
 
-app.get('/cluster/pods.json', (req, res) => {
+app.get('/cluster/status.json', (req, res) => {
   const force = req.query.force
   const failureState = force && force in failureStates ? force : getRandomFailureState()
   const isForced = force && force in failureStates
-  console.log(`cluster/pods.json - ${isForced ? 'Forced ' : ''}Failure state: ${failureState}`)
+  console.log(`cluster/status.json - ${isForced ? 'Forced ' : ''}Failure state: ${failureState}`)
   if (failureState === failureStates.Unauthenticated) {
     return res.status(403).json({
       status: 'error',
