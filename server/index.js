@@ -30,7 +30,7 @@ app.get('/cluster/status.json', (req, res) => {
   }
   res.json({
     status: 'success',
-    data: getClusterPods(failureState),
+    pods: getClusterPods(failureState),
   })
 })
 
