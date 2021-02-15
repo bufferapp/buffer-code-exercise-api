@@ -8,6 +8,7 @@ const deployments = [
   'authentication',
   'billing',
   'session',
+  'rapid-prototype'
 ]
 const failureStates = {
   Unauthenticated: 'Unauthenticated',
